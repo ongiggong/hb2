@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hbproject.example.mapper.MenuMapper">
+	<!-- 카테고리 설정 창 가져오기 -->
+	<select id="getCategory" resultType="Menu">
+		SELECT		m_idx,
+					m_name
+		FROM    	menu
+		ORDER BY 	m_idx ASC
+		
+	</select>
+	
+	<select id="getMenu" resultType="Menu">
+		<![CDATA[ 
+		SELECT		m_name,
+					m_idx
+		FROM    	menu
+		Where 		m_idx < 100
+		]]> 
+		
+	</select>
+	
+	<insert id="menuUp" parameterType="menu">
+		INSERT INTO menu ( 
+			
+			m_idx,
+			m_name
+		
+		) VALUES (
+		
+			#{m_idx},
+			#{m_name}
+		)
+			 
+		ON DUPLICATE KEY UPDATE
+			m_idx = #{m_idx},
+			m_name = #{m_name}	 
+			
+		
+	</insert>
+	
+	<select id="menuName" parameterType="int" resultType="Menu">
+		SELECT		m_name,
+					m_idx
+		FROM    	menu
+		Where    	m_idx = #{idx}
+	</select>
+	
+	<select id="menuSub" parameterType="String" resultType="Menu">
+		SELECT	*
+		FROM 	menu
+		WHERE	m_idx	Like  #{key} AND CHAR_LENGTH(m_idx) = 4
+	</select>
+	
+	<delete id="menuDel" parameterType="int">
+		DELETE from menu
+		WHERE m_idx = #{idx}
+	</delete>
+</mapper>
