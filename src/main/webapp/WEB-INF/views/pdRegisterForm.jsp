@@ -6,15 +6,17 @@
 	<div class="row">
 		<div class="col-xs-2 col-md-2"></div>
 		<div class="col-xs-8 col-md-8">
-			<p style="margin-top: 20%; font-size: 20px">상품분류</p>
+			
+			<p style="margin-top: 20%; font-size: 20px">▪제품 분류</p>
 			<table
 			border="1"
             width="100%"
             height="100"
            	>
 				<tbody style="text-align:center">
+										
 					<tr>
-					 	<td width="20%" style="text-align:center; font-size: 15px">기본분류</td>
+					 	<td width="20%" style="text-align:center; font-size: 15px">기본 분류</td>
 				 		<td>
 				 			<select onchange="alert_select_value(this)">
 				 			<c:forEach var="item" items="${cg}">
@@ -23,8 +25,9 @@
 				 			</select>
 				 		</td>
 					</tr>
+					
 					<tr>
-					 	<td width="20%" style="text-align:center; font-size: 15px">2차분류</td>
+					 	<td width="20%" style="text-align:center; font-size: 15px">2차 분류</td>
 				 		<td>
 				 			<select id="Cg">
 				 			<c:forEach var="item" items="${subCg}">
@@ -33,8 +36,24 @@
 				 			</select>
 				 		</td>
 					</tr>
+			
 				</tbody>
 			</table>
+			<p style="margin-top: 5%; font-size: 20px">▪제품 코드</p>
+			 <td>
+			 	<input type="text" style="width: 25%; text-align: center" placeholder="직접 입력">
+			 </td>
+			 <p style="margin-top: 5%; font-size: 20px">▪제품명</p>
+			 <td>
+			 	<input type="text" style="width: 25%; text-align: center" placeholder="직접 입력">
+			 </td>
+			<p style="margin-top: 5%; font-size: 20px">▪이미지 설정</p>
+			<p style="margin-top: 5%; font-size: 20px">▪제품 가격<p>
+			<td>
+			 	<input type="text" style="width: 25%; text-align: center" placeholder="직접 입력">
+			 </td>
+					
+					
 		</div>
 		<div class="col-xs-2 col-md-2"></div>
 	</div>

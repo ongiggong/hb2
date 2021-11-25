@@ -46,7 +46,7 @@
 			<table class="styled-table">
 			    <thead>
 			        <tr>
-			            <th scope="col" rowspan="3" style="text-align: center">상품코드</th>
+			            <th scope="col" rowspan="3" style="text-align: center">제품코드</th>
 			            <th scope="col" rowspan="3" style="text-align: center">분류</th>
 			            <th scope="col" rowspan="2" style="text-align: center">이미지</th>
 			        	<th scope="col" rowspan="2" style="text-align: center">상품명</th>
