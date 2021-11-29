@@ -65,6 +65,7 @@
 					 <img src="" class="img-rounded" id="Image" >
 					</div>
 				 </div>
+				 <p style="margin-left:5%; margin-top: 8%"><input type="button" value="등록하기" style=" font-size: 20px" onclick=""></p>
 			</form>
 			
 			 
