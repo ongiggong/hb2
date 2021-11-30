@@ -9,7 +9,9 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
+import org.springframework.web.multipart.MultipartFile; 
+import javax.swing.filechooser.FileSystemView; 
+import java.io.File; 
 import com.hbproject.example.domain.Menu;
 import com.hbproject.example.domain.User;
 import com.hbproject.example.service.UserService;
@@ -20,7 +22,7 @@ import com.hbproject.example.service.MenuService;
 
 @org.springframework.stereotype.Controller
 
-public class Controller {
+public class Controller<MulitipartHttpServletRequest> {
 	
 	
 	
@@ -171,5 +173,15 @@ public class Controller {
 		List<Menu> subCglist = menuservice.getsubCg(key);
 		model.addAttribute("subCg",subCglist);
 		return "/pdRegisterForm";
+	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(value="/pdformUpload")
+	public String pdformUpload(Model model,
+							   @RequestParam("productNumber"),
+							   @RequestParam(required=false) List<MultipartFile> files) {
+		
+		
+		
 	}
 }

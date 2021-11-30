@@ -7,17 +7,17 @@
 		<div class="col-xs-2 col-md-2"></div>
 		<div class="col-xs-8 col-md-8">
 			
-			<form style="margin-top: 20%; font-size: 20px" class="form-horizontal">
+			<form style="margin-top: 20%; font-size: 20px" name="pdForm" class="form-horizontal" action="/pdformUpload" method="post" enctype="multipart/form-data">
 				<div class="form-group"  style="margin-top: 5%">
-				    <label for="ProductNumber" style="text-align: center" class="col-sm-2 control-label">제품 코드</label>
+				    <label for="productNumber" style="text-align: center" class="col-sm-2 control-label">제품 코드</label>
 				    <div class="col-sm-10">
-				      <input type="text" style="width:20%" class="form-control" id="ProductNumber" placeholder="직접 입력">
+				      <input type="text" style="width:20%" class="form-control" id="productNumber" name="productNumber" placeholder="직접 입력">
 				    </div>
 			  	</div>
 				<div class="form-group" style="margin-top: 5%">
-					<label for="ProductName" style="text-align: center" class="col-sm-2 control-label">제품명</label>
+					<label for="productName" style="text-align: center" class="col-sm-2 control-label">제품명</label>
 					<div class="col-sm-10">
-					 <input type="text" style="width:20%" class="form-control" id="CateGory" placeholder="직접 입력">
+					 <input type="text" style="width:20%" class="form-control" id="productName" name="productName" placeholder="직접 입력">
 					</div>
 				</div>
 			  
@@ -54,15 +54,16 @@
 				    </div>
 				 </div>
 				 <div class="form-group" style="margin-top: 5%">
-					<label for="ProductPrice" style="text-align: center" class="col-sm-2 control-label">제품 가격</label>
+					<label for="productPrice" style="text-align: center" class="col-sm-2 control-label">제품 가격</label>
 					<div class="col-sm-10">
-					 <input type="text" style="width:20%" class="form-control" id="Price" placeholder="직접 입력">
+					 <input type="text" style="width:20%" class="form-control" id="productPrice" name="price" placeholder="직접 입력">
 					</div>
 				 </div>
 				 <div class="form-group" style="margin-top: 5%">
-					<label for="ProductImage" style="text-align: center" class="col-sm-2 control-label">제품 이미지</label>
+					<label for="productImage" style="text-align: center" class="col-sm-2 control-label">제품 이미지</label>
 					<div class="col-sm-10">
-					 <img src="" class="img-rounded" id="Image" >
+					   <input type="file" name="file" id="productImage"> 
+					   <input style="margin-top: 5%" type="submit" value="업로드">
 					</div>
 				 </div>
 				 <p style="margin-left:5%; margin-top: 8%"><input type="button" value="등록하기" style=" font-size: 20px" onclick=""></p>
