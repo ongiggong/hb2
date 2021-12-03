@@ -21,7 +21,7 @@
 					</div>
 				</div>
 			  
-				<div class="form-group" style="margin-top: 5%">
+				<div  id="subCg" class="form-group" style="margin-top: 5%">
 					<label for="Category" style="text-align: center" class="col-sm-2 control-label">제품 분류</label>
 				   	<div class="col-sm-10">
 					<table class="table table-hover" style="width:70%">
@@ -41,12 +41,12 @@
 							
 							<tr>
 							 	<td width="20%" style="text-align:center; font-size: 15px">2차 분류</td>
-								<td>
-								<select id="Cg">
-								<c:forEach var="item" items="${subCg}">
-									<option value="${item.m_idx}">${item.m_name}</option>
-								</c:forEach>
-								</select>
+								<td id="subCate">
+									<select id="Cg">
+									<c:forEach var="sub" items="${subCg}">
+										<option value="${sub.m_idx}">${sub.m_name}</option>
+									</c:forEach>
+									</select>
 								</td>
 							</tr>
 						</tbody>
@@ -90,8 +90,9 @@
 			 data: {m_idx: idx}
 		})
 		 .done(function( data ) {
-			 
-			 alert('넘기기');
+			 $('#subCate').html(data);
+			
+			
 		 
 		})
 		.fail(function(e) {

@@ -49,7 +49,7 @@
 	<select id="menuSub" parameterType="String" resultType="Menu">
 		SELECT	*
 		FROM 	menu
-		WHERE	m_idx	Like  #{key} AND CHAR_LENGTH(m_idx) = 4
+		WHERE	m_idx	LIKE "${key}%" and CHAR_LENGTH("${key}")+2 = CHAR_LENGTH(m_idx)
 	</select>
 	
 	<delete id="menuDel" parameterType="int">

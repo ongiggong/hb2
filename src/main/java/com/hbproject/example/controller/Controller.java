@@ -172,16 +172,16 @@ public class Controller<MulitipartHttpServletRequest> {
 		key = String.valueOf(menu.getM_idx());
 		List<Menu> subCglist = menuservice.getsubCg(key);
 		model.addAttribute("subCg",subCglist);
-		return "/pdRegisterForm";
+		return "/pdForm";
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value="/pdformUpload")
-	public String pdformUpload(Model model,
-							   @RequestParam("productNumber"),
-							   @RequestParam(required=false) List<MultipartFile> files) {
-		
-		
-		
-	}
+//	@PreAuthorize("hasRole('ROLE_ADMIN')")
+//	@RequestMapping(value="/pdformUpload")
+//	public String pdformUpload(Model model,
+//							   @RequestParam("productNumber"),
+//							   @RequestParam(required=false) List<MultipartFile> files) {
+//		
+//		
+//		
+//	}
 }
