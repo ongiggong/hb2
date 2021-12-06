@@ -11,13 +11,13 @@
 				<div class="form-group"  style="margin-top: 5%">
 				    <label for="productNumber" style="text-align: center" class="col-sm-2 control-label">제품 코드</label>
 				    <div class="col-sm-10">
-				      <input type="text" style="width:20%" class="form-control" id="productNumber" name="productNumber" placeholder="직접 입력">
+				      <input type="text" style="width:20%" class="form-control" id="p_number" name="productNumber" placeholder="직접 입력">
 				    </div>
 			  	</div>
 				<div class="form-group" style="margin-top: 5%">
 					<label for="productName" style="text-align: center" class="col-sm-2 control-label">제품명</label>
 					<div class="col-sm-10">
-					 <input type="text" style="width:20%" class="form-control" id="productName" name="productName" placeholder="직접 입력">
+					 <input type="text" style="width:20%" class="form-control" id="p_name" name="productName" placeholder="직접 입력">
 					</div>
 				</div>
 			  
@@ -42,7 +42,7 @@
 							<tr>
 							 	<td width="20%" style="text-align:center; font-size: 15px">2차 분류</td>
 								<td id="subCate">
-									<select id="Cg">
+									<select id="Cg" name="p_cg">
 									<c:forEach var="sub" items="${subCg}">
 										<option value="${sub.m_idx}">${sub.m_name}</option>
 									</c:forEach>
@@ -62,7 +62,7 @@
 				 <div class="form-group" style="margin-top: 5%">
 					<label for="productImage" style="text-align: center" class="col-sm-2 control-label">제품 이미지</label>
 					<div class="col-sm-10">
-					   <input type="file" name="file" id="productImage"> 
+					   <input type="file" name="p_files"> 
 					   <input style="margin-top: 5%" type="submit" value="업로드">
 					</div>
 				 </div>

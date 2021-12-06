@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -13,7 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.swing.filechooser.FileSystemView; 
 import java.io.File; 
 import com.hbproject.example.domain.Menu;
+import com.hbproject.example.domain.Pd;
 import com.hbproject.example.domain.User;
+import com.hbproject.example.service.PdService;
 import com.hbproject.example.service.UserService;
 import com.hbproject.example.service.MenuService;
 
@@ -28,6 +31,8 @@ public class Controller<MulitipartHttpServletRequest> {
 	
 	@Autowired UserService userservice;
 	@Autowired MenuService menuservice;
+	@Autowired PdService pdservice;
+	
 	
 	
 	@RequestMapping("/")
@@ -175,13 +180,19 @@ public class Controller<MulitipartHttpServletRequest> {
 		return "/pdForm";
 	}
 	
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
-//	@RequestMapping(value="/pdformUpload")
-//	public String pdformUpload(Model model,
-//							   @RequestParam("productNumber"),
-//							   @RequestParam(required=false) List<MultipartFile> files) {
-//		
-//		
-//		
-//	}
-}
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(value="/pdformUpload", method= RequestMethod.POST)
+	public String pdformUpload(Pd pd) {
+		pdservice.createPd(pd);
+		return "/mbMgr";
+		
+	}
+							  
+		
+	}
+	
+		
+		
+		
+	
+
