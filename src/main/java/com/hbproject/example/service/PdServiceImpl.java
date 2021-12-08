@@ -11,12 +11,13 @@ import org.springframework.stereotype.Service;
 
 import com.hbproject.example.domain.Pd;
 import com.hbproject.example.domain.User;
+import com.hbproject.example.mapper.PdMapper;
 
 
 
 
 @Service
-public class PdServiceImpl<PdMapper> implements PdService {
+public class PdServiceImpl implements PdService {
 	
 	@Autowired
 	   PdMapper pdMapper;

@@ -10,7 +10,7 @@ public class HbprojectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HbprojectApplication.class, args);
-		System.out.println("Hello World");
+		System.out.println("Well Done");
 	}
 
 @SpringBootApplication

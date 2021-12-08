@@ -11,13 +11,13 @@
 				<div class="form-group"  style="margin-top: 5%">
 				    <label for="productNumber" style="text-align: center" class="col-sm-2 control-label">제품 코드</label>
 				    <div class="col-sm-10">
-				      <input type="text" style="width:20%" class="form-control" id="p_number" name="productNumber" placeholder="직접 입력">
+				      <input type="text" style="width:20%" class="form-control" id="p_number" name="p_number" placeholder="직접 입력">
 				    </div>
 			  	</div>
 				<div class="form-group" style="margin-top: 5%">
 					<label for="productName" style="text-align: center" class="col-sm-2 control-label">제품명</label>
 					<div class="col-sm-10">
-					 <input type="text" style="width:20%" class="form-control" id="p_name" name="productName" placeholder="직접 입력">
+					 <input type="text" style="width:20%" class="form-control" id="p_name" name="p_name" placeholder="직접 입력">
 					</div>
 				</div>
 			  
@@ -32,6 +32,7 @@
 							 	<td width="20%" style="text-align:center; font-size: 15px">기본 분류</td>
 								<td>
 								<select onchange="alert_select_value(this)">
+								<option value="">선택</option>
 								<c:forEach var="item" items="${cg}">
 									<option value="${item.m_idx}">${item.m_name}</option>
 								</c:forEach>
@@ -42,7 +43,17 @@
 							<tr>
 							 	<td width="20%" style="text-align:center; font-size: 15px">2차 분류</td>
 								<td id="subCate">
-									<select id="Cg" name="p_cg">
+									<select>
+									<c:forEach var="sub" items="${subCg}">
+										<option value="${sub.m_idx}">${sub.m_name}</option>
+									</c:forEach>
+									</select>
+								</td>
+							</tr>
+							<tr>
+							 	<td width="20%" style="text-align:center; font-size: 15px">3차 분류</td>
+								<td id="subCate2">
+									<select>
 									<c:forEach var="sub" items="${subCg}">
 										<option value="${sub.m_idx}">${sub.m_name}</option>
 									</c:forEach>
@@ -56,17 +67,16 @@
 				 <div class="form-group" style="margin-top: 5%">
 					<label for="productPrice" style="text-align: center" class="col-sm-2 control-label">제품 가격</label>
 					<div class="col-sm-10">
-					 <input type="text" style="width:20%" class="form-control" id="productPrice" name="price" placeholder="직접 입력">
+					 <input type="text" style="width:20%" class="form-control" id="productPrice" name="p_price" placeholder="직접 입력">
 					</div>
 				 </div>
 				 <div class="form-group" style="margin-top: 5%">
 					<label for="productImage" style="text-align: center" class="col-sm-2 control-label">제품 이미지</label>
 					<div class="col-sm-10">
-					   <input type="file" name="p_files"> 
-					   <input style="margin-top: 5%" type="submit" value="업로드">
+					   <input type="file" name="p_originFileName"> 
 					</div>
 				 </div>
-				 <p style="margin-left:5%; margin-top: 8%"><input type="button" value="등록하기" style=" font-size: 20px" onclick=""></p>
+				 <p style="margin-left:70%; margin-top: 5%"><input type="submit" value="업로드" style=" font-size: 20px"></p>
 			</form>
 			
 			 
@@ -87,6 +97,26 @@
 		$.ajax({
 			 method: "POST",
 			 url: "/subSelect",
+			 data: {m_idx: idx}
+		})
+		 .done(function( data ) {
+			 $('#subCate').html(data);
+			
+			
+		 
+		})
+		.fail(function(e) {
+			console.dir(e);
+		})
+	};
+	
+	var select_value2 = function (select_obj){
+		var selected_index = select_obj.selectedIndex;
+		var idx = select_obj.options[selected_index].value;
+		
+		$.ajax({
+			 method: "POST",
+			 url: "/subsubSelect",
 			 data: {m_idx: idx}
 		})
 		 .done(function( data ) {

@@ -16,7 +16,9 @@ spring:
     password: dmswlsdkwna2@
     driver-class-name: com.mysql.cj.jdbc.Driver
     
-       
+  servlet:    multipart:      max-file-size: 10MB
+      max-request-size: 20MB        
+                     
 
 server:  port: 80
   tomcat:    accesslog:      encoding: UTF-8
@@ -26,7 +28,10 @@ server:  port: 80
       charset: UTF-8
       enabled: true
       force: true
-      
+  
+    
+    
+ 
     jsp:
       init-parameters:        development: true
     session:
