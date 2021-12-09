@@ -20,5 +20,4 @@ public interface MenuService {
 
 	public List<Menu> getsubCg(String key);
 
-
 }

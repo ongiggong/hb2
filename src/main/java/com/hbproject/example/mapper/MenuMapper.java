@@ -20,7 +20,6 @@ public interface MenuMapper {
 	public Menu menuName(int idx);
 
 	public List<Menu> menuSub(String key);
-
 	
 
 }

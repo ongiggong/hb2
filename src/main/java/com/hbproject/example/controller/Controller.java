@@ -182,11 +182,11 @@ public class Controller<MulitipartHttpServletRequest> {
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value="/subsubSelect", method= RequestMethod.POST)
-	public String menuCg(Model model, Menu menu, String key) {
+	public String menuCg2(Model model, Menu menu, String key) {
 		key = String.valueOf(menu.getM_idx());
 		List<Menu> subCglist = menuservice.getsubCg(key);
 		model.addAttribute("subCg",subCglist);
-		return "/pdForm";
+		return "/pdForm2";
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")

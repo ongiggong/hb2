@@ -43,21 +43,13 @@
 							<tr>
 							 	<td width="20%" style="text-align:center; font-size: 15px">2차 분류</td>
 								<td id="subCate">
-									<select>
-									<c:forEach var="sub" items="${subCg}">
-										<option value="${sub.m_idx}">${sub.m_name}</option>
-									</c:forEach>
-									</select>
+									
 								</td>
 							</tr>
 							<tr>
 							 	<td width="20%" style="text-align:center; font-size: 15px">3차 분류</td>
 								<td id="subCate2">
-									<select>
-									<c:forEach var="sub" items="${subCg}">
-										<option value="${sub.m_idx}">${sub.m_name}</option>
-									</c:forEach>
-									</select>
+									
 								</td>
 							</tr>
 						</tbody>
@@ -100,7 +92,9 @@
 			 data: {m_idx: idx}
 		})
 		 .done(function( data ) {
+			
 			 $('#subCate').html(data);
+			
 			
 			
 		 
@@ -120,7 +114,8 @@
 			 data: {m_idx: idx}
 		})
 		 .done(function( data ) {
-			 $('#subCate').html(data);
+			 $('#subCate2').html(data);
+			
 			
 			
 		 

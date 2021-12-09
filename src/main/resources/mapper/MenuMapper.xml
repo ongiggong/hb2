@@ -52,6 +52,7 @@
 		WHERE	m_idx	LIKE "${key}%" and CHAR_LENGTH("${key}")+2 = CHAR_LENGTH(m_idx)
 	</select>
 	
+		
 	<delete id="menuDel" parameterType="int">
 		DELETE from menu
 		WHERE m_idx = #{idx}

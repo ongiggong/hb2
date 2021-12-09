@@ -42,5 +42,6 @@ public class MenuServiceImpl implements MenuService {
 	public List<Menu> getsubCg(String key) {
 		return menumapper.menuSub(key);
 	}
+	
 }
 
