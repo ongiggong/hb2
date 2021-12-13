@@ -30,8 +30,8 @@
 												
 							<tr>
 							 	<td width="20%" style="text-align:center; font-size: 15px">기본 분류</td>
-								<td>
-								<select onchange="alert_select_value(this)">
+								<td id="basic">
+								<select class="1stMenu">
 								<option value="">선택</option>
 								<c:forEach var="item" items="${cg}">
 									<option value="${item.m_idx}">${item.m_name}</option>
@@ -40,18 +40,7 @@
 								</td>
 							</tr>
 							
-							<tr>
-							 	<td width="20%" style="text-align:center; font-size: 15px">2차 분류</td>
-								<td id="subCate">
-									
-								</td>
-							</tr>
-							<tr>
-							 	<td width="20%" style="text-align:center; font-size: 15px">3차 분류</td>
-								<td id="subCate2">
-									
-								</td>
-							</tr>
+							
 						</tbody>
 					</table>
 				    </div>
@@ -72,8 +61,7 @@
 			</form>
 			
 			 
-			
-					
+		
 					
 		</div>
 		<div class="col-xs-2 col-md-2"></div>
@@ -82,9 +70,10 @@
 </body>
 
 <script>
-	var alert_select_value = function (select_obj){
-		var selected_index = select_obj.selectedIndex;
-		var idx = select_obj.options[selected_index].value;
+$(document).on('change', '.1stMenu', function() {
+	
+		var idx = $(this).val();
+		
 		
 		$.ajax({
 			 method: "POST",
@@ -93,7 +82,7 @@
 		})
 		 .done(function( data ) {
 			
-			 $('#subCate').html(data);
+			 $('#basic').append(data);
 			
 			
 			
@@ -102,28 +91,8 @@
 		.fail(function(e) {
 			console.dir(e);
 		})
-	};
-	
-	var select_value2 = function (select_obj){
-		var selected_index = select_obj.selectedIndex;
-		var idx = select_obj.options[selected_index].value;
-		
-		$.ajax({
-			 method: "POST",
-			 url: "/subsubSelect",
-			 data: {m_idx: idx}
-		})
-		 .done(function( data ) {
-			 $('#subCate2').html(data);
-			
-			
-			
-		 
-		})
-		.fail(function(e) {
-			console.dir(e);
-		})
-	};
+	});
+
 
  
 </script>
