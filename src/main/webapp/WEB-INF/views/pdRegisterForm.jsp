@@ -31,7 +31,7 @@
 							<tr>
 							 	<td width="20%" style="text-align:center; font-size: 15px">기본 분류</td>
 								<td>
-								<select name="p_cg" class="1stMenu">
+								<select id="cgFinal" name="p_cg" class="1stMenu">
 								<option value="">선택</option>
 								<c:forEach var="item" items="${cg}">
 									<option value="${item.m_idx}">${item.m_name}</option>
@@ -72,7 +72,7 @@
 
 <script>
 var cgNum;
-var count = document.getElementById('#cgFinal').length - 1;
+
 $(document).on('change', '.1stMenu', function() {
 	
 		var idx = $(this).val();
@@ -85,14 +85,14 @@ $(document).on('change', '.1stMenu', function() {
 		})
 		 .done(function( data ) {
 			
-			 if(count > 0 ){
-							
-			 	$('#basic').prev().parent().append(data);
-			 	
-			 }else{
-				 
-			 }
+			
+			 $('#basic').prev().parent().append(data);
+			 $(".1stMenu").change(function() {
+			 	cgNum = $(this).val();
+			 })
+			 alert(cgNum);
 		})
+		
 		.fail(function(e) {
 			console.dir(e);
 		})
