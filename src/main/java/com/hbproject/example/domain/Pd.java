@@ -14,7 +14,21 @@ public class Pd {
 	private String p_originFileName;
 	private String p_filePath;
 	private Long p_fileSize;
+	private MultipartFile file1;
+	private MultipartFile file2;
 	
+	public MultipartFile getFile1() {
+		return file1;
+	}
+	public void setFile1(MultipartFile file1) {
+		this.file1 = file1;
+	}
+	public MultipartFile getFile2() {
+		return file2;
+	}
+	public void setFile2(MultipartFile file2) {
+		this.file2 = file2;
+	}
 	public int getP_idx() {
 		return p_idx;
 	}

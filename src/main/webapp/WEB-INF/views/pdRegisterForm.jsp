@@ -7,7 +7,7 @@
 		<div class="col-xs-2 col-md-2"></div>
 		<div class="col-xs-8 col-md-8">
 			
-			<form style="margin-top: 20%; font-size: 20px" name="pdForm" class="form-horizontal" action="/pdformUpload" method="post" enctype="multipart/form-data">
+			<form style="margin-top: 20%; font-size: 20px" name="pdForm" onSubmit="return checkForm()" class="form-horizontal" action="/pdformUpload" method="post" enctype="multipart/form-data">
 				<div class="form-group"  style="margin-top: 5%">
 				    <label for="productNumber" style="text-align: center" class="col-sm-2 control-label">제품 코드</label>
 				    <div class="col-sm-10">
@@ -21,7 +21,7 @@
 					</div>
 				</div>
 			  
-				<div  id="subCg" class="form-group" style="margin-top: 5%">
+				<div class="form-group" style="margin-top: 5%">
 					<label for="Category" style="text-align: center" class="col-sm-2 control-label">제품 분류</label>
 				   	<div class="col-sm-10">
 					<table class="table table-hover" style="width:70%">
@@ -31,7 +31,7 @@
 							<tr>
 							 	<td width="20%" style="text-align:center; font-size: 15px">기본 분류</td>
 								<td>
-								<select class="1stMenu">
+								<select name="p_cg" class="1stMenu">
 								<option value="">선택</option>
 								<c:forEach var="item" items="${cg}">
 									<option value="${item.m_idx}">${item.m_name}</option>
@@ -54,7 +54,8 @@
 				 <div class="form-group" style="margin-top: 5%">
 					<label for="productImage" style="text-align: center" class="col-sm-2 control-label">제품 이미지</label>
 					<div class="col-sm-10">
-					   <input type="file" name="p_originFileName"> 
+					   <input style="margin-bottom: 3%" type="file" name="file1">
+					   <input type="file" name="file2">
 					</div>
 				 </div>
 				 <p style="margin-left:70%; margin-top: 5%"><input type="submit" value="업로드" style=" font-size: 20px"></p>
@@ -70,6 +71,8 @@
 </body>
 
 <script>
+var cgNum;
+var count = document.getElementById('#cgFinal').length - 1;
 $(document).on('change', '.1stMenu', function() {
 	
 		var idx = $(this).val();
@@ -82,11 +85,13 @@ $(document).on('change', '.1stMenu', function() {
 		})
 		 .done(function( data ) {
 			
-			 $('#basic').prev().parent().append(data);
-			
-			
-			
-		 
+			 if(count > 0 ){
+							
+			 	$('#basic').prev().parent().append(data);
+			 	
+			 }else{
+				 
+			 }
 		})
 		.fail(function(e) {
 			console.dir(e);
@@ -94,5 +99,42 @@ $(document).on('change', '.1stMenu', function() {
 	});
 
 
- 
+function checkForm(){
+	if(pdForm.p_number.value==""){
+		
+		pdForm.p_number.focus();
+		alert("제품 코드를 입력해주세요.");
+		
+		return false;
+	}
+	
+	if(pdForm.p_name.value==""){
+			
+		pdForm.p_name.focus();
+		alert("제품명을 입력해주세요.");
+		
+		return false;
+	}
+	
+	
+	
+	if(pdForm.p_price.value==""){
+		
+		pdForm.p_price.focus();
+		alert("제품 가격을 입력해주세요.");
+		
+		return false;
+	}
+	
+	if(pdForm.file1.value==""){
+		
+		pdForm.file1.focus();
+		alert("최소 1개 이상의 이미지 파일을 선택해주세요");
+		
+		return false;
+	}
+}
+	
+
+
 </script>
