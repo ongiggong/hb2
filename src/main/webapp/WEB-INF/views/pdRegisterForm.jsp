@@ -31,7 +31,7 @@
 							<tr>
 							 	<td width="20%" style="text-align:center; font-size: 15px">기본 분류</td>
 								<td>
-								<select id="cgFinal" name="p_cg" class="1stMenu">
+								<select class="1stMenu">
 								<option value="">선택</option>
 								<c:forEach var="item" items="${cg}">
 									<option value="${item.m_idx}">${item.m_name}</option>
@@ -40,11 +40,12 @@
 								</td>
 							</tr>
 							<tr id="basic">
-							</tr>			
+							</tr>
 						</tbody>
 					</table>
 				    </div>
 				 </div>
+				 <input type="hidden" id="cgFinal" name="p_cg"></input>
 				 <div class="form-group" style="margin-top: 5%">
 					<label for="productPrice" style="text-align: center" class="col-sm-2 control-label">제품 가격</label>
 					<div class="col-sm-10">
@@ -89,8 +90,9 @@ $(document).on('change', '.1stMenu', function() {
 			 $('#basic').prev().parent().append(data);
 			 $(".1stMenu").change(function() {
 			 	cgNum = $(this).val();
+			 	$("#cgFinal").val(cgNum);
 			 })
-			 alert(cgNum);
+			 
 		})
 		
 		.fail(function(e) {
