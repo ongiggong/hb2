@@ -85,13 +85,15 @@ $(document).on('change', '.1stMenu', function() {
 			 data: {m_idx: idx}
 		})
 		 .done(function( data ) {
-			
-			
+			if(data == 0){
+				$("#cgFinal").val(idx);
+			}else{
 			 $('#basic').prev().parent().append(data);
 			 $(".1stMenu").change(function() {
 			 	cgNum = $(this).val();
 			 	$("#cgFinal").val(cgNum);
 			 })
+			}
 			 
 		})
 		

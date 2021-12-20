@@ -15,7 +15,7 @@ li{
  	font-size:120%;
  }
 </style>
-<body>
+
 <p style="text-align:center; padding-top:0.5%; font-size: 20px"><관리자 페이지></p>
 <div class="container">
 	<div class="row">
@@ -55,7 +55,7 @@ li{
     </div>
 </div>
 
-</body>
+
 
 <script>
 

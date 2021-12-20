@@ -12,7 +12,9 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.multipart.MultipartFile; 
 import javax.swing.filechooser.FileSystemView; 
-import java.io.File; 
+import java.io.File;
+import java.io.IOException;
+
 import com.hbproject.example.domain.Menu;
 import com.hbproject.example.domain.Pd;
 import com.hbproject.example.domain.User;
@@ -135,9 +137,11 @@ public class Controller<MulitipartHttpServletRequest> {
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value="/mbMgr")
-	public String menuboardManage(Model model, Menu menu) {
-		
-		
+	public String menuboardManage(Model model, Menu menu, Pd pd, String key) {
+		List<Menu> menuList = menuservice.getMenu();
+		model.addAttribute("cg", menuList);
+		List<Pd> list = pdservice.selectPd();
+		model.addAttribute("pd", list);
 		return"/mbMgr";
 	}
 	
@@ -183,7 +187,21 @@ public class Controller<MulitipartHttpServletRequest> {
 		
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value="/pdformUpload", method= RequestMethod.POST)
-	public String pdformUpload(Pd pd) {
+	public String pdformUpload(Pd pd) throws IllegalStateException, IOException {
+		
+		MultipartFile multiFile1 = pd.getFile1();
+		MultipartFile multiFile2 = pd.getFile2();
+		
+		String filename1 = multiFile1.getOriginalFilename();
+		String filename2 = multiFile2.getOriginalFilename();
+		
+		String fileSavePath = "C:\testUpload";
+		File f1 = new File(fileSavePath + filename1);
+		File f2 = new File(fileSavePath + filename2);
+		
+		multiFile1.transferTo(f1);
+		multiFile2.transferTo(f2);
+		
 		pdservice.createPd(pd);
 		return "/mbMgr";
 		

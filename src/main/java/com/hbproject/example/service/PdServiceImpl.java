@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.hbproject.example.domain.Pd;
 import com.hbproject.example.domain.User;
+import com.hbproject.example.mapper.MenuMapper;
 import com.hbproject.example.mapper.PdMapper;
 
 
@@ -29,6 +30,10 @@ public class PdServiceImpl implements PdService {
 		pdMapper.createPd(pd);
 	}
 	
+	@Override
+	public List<Pd> selectPd() {
+		return pdMapper.selectPd();
+	}
 	
 	
 }

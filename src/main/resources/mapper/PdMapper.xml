@@ -10,10 +10,8 @@
 			p_name,
 			p_number,
 			p_price,
-			p_cg,
-			p_originFileName,
-			p_filePath,
-			p_fileSize
+			p_cg
+			
 			
 			
 		)  VALUES (
@@ -22,14 +20,20 @@
 			#{p_name},
 			#{p_number},
 			#{p_price},
-			#{p_cg},
-			#{p_originFileName},
-			#{p_filePath},
-			#{p_fileSize}
+			#{p_cg}
+			
 			
 		)
 	</insert>
 	
+	<select id="selectPd" resultType="Pd">
+		SELECT		p_number,
+					p_name,
+					p_price,
+					p_cg
+		from pd
+		
+	</select>
 	
 </mapper>
 

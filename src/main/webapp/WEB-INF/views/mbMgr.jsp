@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<%@ include file="userHeader.jsp"%>
 <%@ include file="adminNavibar.jsp"%>
 <style>
 <style>
@@ -46,38 +45,37 @@
 			<table class="styled-table">
 			    <thead>
 			        <tr>
-			            <th scope="col" rowspan="3" style="text-align: center">제품코드</th>
-			            <th scope="col" rowspan="3" style="text-align: center">분류</th>
-			            <th scope="col" rowspan="2" style="text-align: center">이미지</th>
-			        	<th scope="col" rowspan="2" style="text-align: center">상품명</th>
-			        	<th scope="col" rowspan="2" style="text-align: center">판매가격</th>
-			            <th scope="col" rowspan="5" style="text-align: center">판매</th>
-			            <th scope="col" rowspan="5" style="text-align: center">품절</th>
-			            <th scope="col" rowspan="5" style="text-align: center">관리</th>
-			        </tr>
-			        <tr>
-			        	
-			        </tr>
+		        	
+					<th scope="col" rowspan="3" style="text-align: center; width: 20%">제품코드</th>
+		            <th scope="col" rowspan="3" style="text-align: center; width: 20%">분류</th>
+		            <th scope="col" rowspan="2" style="text-align: center; width: 20%">이미지</th>
+		        	<th scope="col" rowspan="2" style="text-align: center; width: 20%">상품명</th>
+		        	<th scope="col" rowspan="2" style="text-align: center; width: 20%">판매가격</th>
+		            <th scope="col" rowspan="5" style="text-align: center; width: 20%">판매</th>
+		            <th scope="col" rowspan="5" style="text-align: center; width: 20%">품절</th>
+		            <th scope="col" rowspan="5" style="text-align: center; width: 20%">관리</th>
+		            </tr>
+			       
 			    </thead>
 			   
 			    <tbody>
 			    	
-			    	
+			    	<c:forEach var="item" items="${pd}" varStatus="status">
 			    	<tr style="text-align: center">
-			    	    <td style="text-align: center">
-			            	<input type="text" style="width: 60%">
+			    	    <td style="text-align: center" style="width: 60%">
+			            	${item.p_number}
 			            </td>
 			            <td>
-				        	<input type="text" style="width: 60%">
-			            </td>
-			             <td style="width: 10%">
-				        	<p></p>
+				        	${cg[status.index].m_name}
 			            </td>
 			            <td>
-				        	<input type="text" style="width: 120%">
+			            	<input type="text" style="width:20%">
 			            </td>
 			            <td>
-				        	<input type="text" style="width: 50%">
+				        	${item.p_name}
+			            </td>
+			            <td>
+				        	${item.p_price}
 			            </td>
 			            <td style="width: 10%">
 			            	<input type="checkbox">
@@ -89,7 +87,8 @@
 			            	<p><input type="button" value="수정"></p>
 			            	<p><input type="button" value="삭제"></p>
 			            </td>
-			        </tr>
+			         </tr>
+			         </c:forEach>
 			                
 			    </tbody>
 			    </table>
@@ -98,6 +97,3 @@
 </div>
 </body>
 
-<script>
-	
-</script>

@@ -13,6 +13,8 @@ public interface PdMapper {
 	
 	public void createPd(Pd pd);
 
+	public List<Pd> selectPd();
+
 
 
 	
