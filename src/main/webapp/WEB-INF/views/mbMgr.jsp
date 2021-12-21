@@ -46,27 +46,26 @@
 			    <thead>
 			        <tr>
 		        	
-					<th scope="col" rowspan="3" style="text-align: center; width: 20%">제품코드</th>
-		            <th scope="col" rowspan="3" style="text-align: center; width: 20%">분류</th>
-		            <th scope="col" rowspan="2" style="text-align: center; width: 20%">이미지</th>
-		        	<th scope="col" rowspan="2" style="text-align: center; width: 20%">상품명</th>
-		        	<th scope="col" rowspan="2" style="text-align: center; width: 20%">판매가격</th>
-		            <th scope="col" rowspan="5" style="text-align: center; width: 20%">판매</th>
-		            <th scope="col" rowspan="5" style="text-align: center; width: 20%">품절</th>
+					<th scope="col" rowspan="3" style="text-align: center; width: 15%">제품코드</th>
+		            <th scope="col" rowspan="3" style="text-align: center; width: 15%">분류</th>
+		            <th scope="col" rowspan="2" style="text-align: center; width: 15%">이미지</th>
+		        	<th scope="col" rowspan="2" style="text-align: center; width: 15%">상품명</th>
+		        	<th scope="col" rowspan="2" style="text-align: center; width: 15%">판매가격</th>
+		            <th scope="col" rowspan="5" style="text-align: center; width: 15%">판매중</th>
+		            <th scope="col" rowspan="5" style="text-align: center; width: 15%">품절</th>
 		            <th scope="col" rowspan="5" style="text-align: center; width: 20%">관리</th>
 		            </tr>
 			       
 			    </thead>
 			   
 			    <tbody>
-			    	
-			    	<c:forEach var="item" items="${pd}" varStatus="status">
+			    	<c:forEach var="item" items="${pd}">
 			    	<tr style="text-align: center">
 			    	    <td style="text-align: center" style="width: 60%">
 			            	${item.p_number}
 			            </td>
 			            <td>
-				        	${cg[status.index].m_name}
+				        	${item.p_cg}
 			            </td>
 			            <td>
 			            	<input type="text" style="width:20%">
@@ -78,10 +77,14 @@
 				        	${item.p_price}
 			            </td>
 			            <td style="width: 10%">
-			            	<input type="checkbox">
+			           		<c:if test="${item.p_check == 'Y'}">
+			            	<input type="checkbox" checked disabled>
+			            	</c:if>
 			            </td>
 			            <td style="width: 10%">
-			            	<input type="checkbox">
+			            	<c:if test="${item.p_check == 'N'}">
+			            	<input type="checkbox" checked disabled>
+			            	</c:if>
 			            </td>
 			            <td style="width: 10%">
 			            	<p><input type="button" value="수정"></p>

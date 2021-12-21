@@ -10,8 +10,8 @@
 			p_name,
 			p_number,
 			p_price,
-			p_cg
-			
+			p_cg,
+			p_check
 			
 			
 		)  VALUES (
@@ -20,7 +20,8 @@
 			#{p_name},
 			#{p_number},
 			#{p_price},
-			#{p_cg}
+			#{p_cg},
+			#{p_check}
 			
 			
 		)
@@ -30,7 +31,8 @@
 		SELECT		p_number,
 					p_name,
 					p_price,
-					p_cg
+					p_cg,
+					p_check
 		from pd
 		
 	</select>

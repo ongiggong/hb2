@@ -14,6 +14,13 @@ public class Pd {
 	private String p_originFileName;
 	private String p_filePath;
 	private Long p_fileSize;
+	private String p_check;
+	public String getP_check() {
+		return p_check;
+	}
+	public void setP_check(String p_check) {
+		this.p_check = p_check;
+	}
 	private MultipartFile file1;
 	private MultipartFile file2;
 	

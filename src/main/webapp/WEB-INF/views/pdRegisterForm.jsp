@@ -46,12 +46,21 @@
 				    </div>
 				 </div>
 				 <input type="hidden" id="cgFinal" name="p_cg"></input>
-				 <div class="form-group" style="margin-top: 5%">
+				 <div class="form-group" >
 					<label for="productPrice" style="text-align: center" class="col-sm-2 control-label">제품 가격</label>
 					<div class="col-sm-10">
 					 <input type="text" style="width:20%" class="form-control" name="p_price" placeholder="직접 입력">
 					</div>
 				 </div>
+				 <div class="form-group" >
+					<label for="p_check" style="text-align: center" class="col-sm-2 control-label">판매 표시</label>
+					<div class="col-sm-10">
+						<input type="hidden" id="check" name="p_check">
+						<input type="radio" style="width: 10%" name="p_oo" onclick="getY()"> 판매중
+						<input type="radio" style="margin-left: 8%; width: 10%" name="p_oo"  onclick="getN()"> 품절
+					</div>
+				 </div>
+				 
 				 <div class="form-group" style="margin-top: 5%">
 					<label for="productImage" style="text-align: center" class="col-sm-2 control-label">제품 이미지</label>
 					<div class="col-sm-10">
@@ -139,6 +148,27 @@ function checkForm(){
 	}
 }
 	
+$(document).ready(function() {
+	 
+	$('input[type="checkbox"][name="p_oo"]').click(function(){
+	 
+	  if($(this).prop('checked')){
+	 
+	     $('input[type="checkbox"][name="p_oo"]').prop('checked',false);
+	 
+	     $(this).prop('checked',true);
+	 
+	    }
+	  
+	   });
+});
 
+function getY() {
+	$('#check').val("Y");
+	
+};
+function getN() {
+	$('#check').val("N");
 
+};
 </script>

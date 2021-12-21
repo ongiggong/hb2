@@ -138,8 +138,6 @@ public class Controller<MulitipartHttpServletRequest> {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value="/mbMgr")
 	public String menuboardManage(Model model, Menu menu, Pd pd, String key) {
-		List<Menu> menuList = menuservice.getMenu();
-		model.addAttribute("cg", menuList);
 		List<Pd> list = pdservice.selectPd();
 		model.addAttribute("pd", list);
 		return"/mbMgr";
@@ -157,7 +155,7 @@ public class Controller<MulitipartHttpServletRequest> {
 	@RequestMapping(value="/menu/{idx}")
 	public String menuCg(Menu menu, Model model, String key, @PathVariable int idx) {
 		
-		key = idx+"%";
+		key = Integer.toString(idx);
 		menu = menuservice.getCgname(idx);
 		model.addAttribute("cgName", menu);
 		List<Menu> list = menuservice.getsubCg(key);
