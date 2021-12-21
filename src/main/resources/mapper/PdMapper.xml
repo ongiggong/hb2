@@ -27,13 +27,14 @@
 		)
 	</insert>
 	
-	<select id="selectPd" resultType="Pd">
-		SELECT		p_number,
+	<select id="selectPd"  resultType="Pd">
+		SELECT		p_idx,
+					p_number,
 					p_name,
 					p_price,
 					p_cg,
 					p_check
-		from pd
+		from 		pd
 		
 	</select>
 	

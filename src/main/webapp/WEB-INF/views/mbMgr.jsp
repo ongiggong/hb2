@@ -87,7 +87,7 @@
 			            	</c:if>
 			            </td>
 			            <td style="width: 10%">
-			            	<p><input type="button" value="수정"></p>
+			            	<p><input type="button" value="수정" class="pdUp" onclick="location.href='/pdUpdate/${item.p_idx}'"></p>
 			            	<p><input type="button" value="삭제"></p>
 			            </td>
 			         </tr>

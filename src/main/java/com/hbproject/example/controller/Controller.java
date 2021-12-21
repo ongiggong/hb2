@@ -204,9 +204,16 @@ public class Controller<MulitipartHttpServletRequest> {
 		return "/mbMgr";
 		
 	}
-							  
-		
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(value="/pdUpdate/{idx}")
+	public String pdUpdate(@PathVariable int idx, Model model) {
+		List<Pd> list = pdservice.selectPd();
+		model.addAttribute("pd", list);
+		return "/pdUpdateForm";
 	}
+		
+}
 	
 		
 		
