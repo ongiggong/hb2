@@ -2,22 +2,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ include file="adminNavibar.jsp"%>
 <body>
+
 <div class="container">
 	<div class="row">
 		<div class="col-xs-2 col-md-2"></div>
 		<div class="col-xs-8 col-md-8">
-			
+			<c:forEach var="pd" items="${pd}">
 			<form style="margin-top: 20%; font-size: 20px" name="pdForm" onSubmit="return checkForm()" class="form-horizontal" action="/pdformUpload" method="post" enctype="multipart/form-data">
 				<div class="form-group"  style="margin-top: 5%">
 				    <label for="productNumber" style="text-align: center" class="col-sm-2 control-label">제품 코드</label>
+				    
 				    <div class="col-sm-10">
-				      <input type="text" style="width:20%" class="form-control" name="p_number" placeholder="직접 입력">
+				      <input type="text" style="width:20%" class="form-control" name="p_number" value="${pd.p_number}">
 				    </div>
+				   
 			  	</div>
 				<div class="form-group" style="margin-top: 5%">
 					<label for="productName" style="text-align: center" class="col-sm-2 control-label">제품명</label>
 					<div class="col-sm-10">
-					 <input type="text" style="width:20%" class="form-control" name="p_name" placeholder="직접 입력">
+					 <input type="text" style="width:20%" class="form-control" name="p_name" value="${pd.p_name}">
 					</div>
 				</div>
 			  
@@ -49,7 +52,7 @@
 				 <div class="form-group" >
 					<label for="productPrice" style="text-align: center" class="col-sm-2 control-label">제품 가격</label>
 					<div class="col-sm-10">
-					 <input type="text" style="width:20%" class="form-control" name="p_price" placeholder="직접 입력">
+					 <input type="text" style="width:20%" class="form-control" name="p_price" value="${pd.p_price}">
 					</div>
 				 </div>
 				 <div class="form-group" >
@@ -70,7 +73,7 @@
 				 </div>
 				 <p style="margin-left:70%; margin-top: 5%"><input type="submit" value="업로드" style=" font-size: 20px"></p>
 			</form>
-			
+			 </c:forEach>
 			 
 		
 					
@@ -78,9 +81,11 @@
 		<div class="col-xs-2 col-md-2"></div>
 	</div>
 </div>
+
 </body>
 
 <script>
+
 var cgNum;
 
 $(document).on('change', '.1stMenu', function() {

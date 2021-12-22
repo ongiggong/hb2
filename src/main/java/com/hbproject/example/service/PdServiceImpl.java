@@ -34,6 +34,7 @@ public class PdServiceImpl implements PdService {
 	public List<Pd> selectPd() {
 		return pdMapper.selectPd();
 	}
-	
-	
+	public List<Pd> selectIdx(int idx){
+		return pdMapper.selectIdx(idx);
+	}
 }

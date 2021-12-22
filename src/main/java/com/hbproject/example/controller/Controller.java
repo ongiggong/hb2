@@ -207,8 +207,10 @@ public class Controller<MulitipartHttpServletRequest> {
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value="/pdUpdate/{idx}")
-	public String pdUpdate(@PathVariable int idx, Model model) {
-		List<Pd> list = pdservice.selectPd();
+	public String pdUpdate(@PathVariable int idx, Model model, Menu menu) {
+		List<Menu> listA = menuservice.getMenu();
+		model.addAttribute("cg", listA);
+		List<Pd> list = pdservice.selectIdx(idx);
 		model.addAttribute("pd", list);
 		return "/pdUpdateForm";
 	}

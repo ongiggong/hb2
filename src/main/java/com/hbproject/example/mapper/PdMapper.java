@@ -15,6 +15,8 @@ public interface PdMapper {
 
 	public List<Pd> selectPd();
 
+	public List<Pd> selectIdx(int idx);
+
 
 
 	
