@@ -59,8 +59,14 @@
 					<label for="p_check" style="text-align: center" class="col-sm-2 control-label">판매 표시</label>
 					<div class="col-sm-10">
 						<input type="hidden" id="check" name="p_check">
-						<input type="radio" style="width: 10%" name="p_oo" onclick="getY()"> 판매중
+						<c:if test="${pd.p_check eq 'Y'}">
+						<input type="radio" style="width: 10%" name="p_oo" onclick="getY()" checked> 판매중
 						<input type="radio" style="margin-left: 8%; width: 10%" name="p_oo"  onclick="getN()"> 품절
+						</c:if>
+						<c:if test="${pd.p_check eq 'N'}">
+						<input type="radio" style="width: 10%" name="p_oo" onclick="getY()" checked> 판매중
+						<input type="radio" style="margin-left: 8%; width: 10%" name="p_oo"  onclick="getN()"> 품절
+						</c:if>
 					</div>
 				 </div>
 				 

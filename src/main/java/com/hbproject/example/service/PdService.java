@@ -14,9 +14,9 @@ public interface PdService {
 
 	public void createPd(Pd pd);
 
-	public List<Pd> selectPd();
+	public List<Pd> selectPd(String idx);
 
-	public List<Pd> selectIdx(int idx); 
+	
 	
 	
 	

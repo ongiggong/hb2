@@ -137,8 +137,8 @@ public class Controller<MulitipartHttpServletRequest> {
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value="/mbMgr")
-	public String menuboardManage(Model model, Menu menu, Pd pd, String key) {
-		List<Pd> list = pdservice.selectPd();
+	public String menuboardManage(Model model, String idx, Menu menu, Pd pd, String key) {
+		List<Pd> list = pdservice.selectPd(idx);
 		model.addAttribute("pd", list);
 		return"/mbMgr";
 	}
@@ -207,10 +207,10 @@ public class Controller<MulitipartHttpServletRequest> {
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value="/pdUpdate/{idx}")
-	public String pdUpdate(@PathVariable int idx, Model model, Menu menu) {
+	public String pdUpdate(@PathVariable String idx, Model model, Menu menu) {
 		List<Menu> listA = menuservice.getMenu();
 		model.addAttribute("cg", listA);
-		List<Pd> list = pdservice.selectIdx(idx);
+		List<Pd> list = pdservice.selectPd(idx);
 		model.addAttribute("pd", list);
 		return "/pdUpdateForm";
 	}

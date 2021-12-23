@@ -31,10 +31,8 @@ public class PdServiceImpl implements PdService {
 	}
 	
 	@Override
-	public List<Pd> selectPd() {
-		return pdMapper.selectPd();
+	public List<Pd> selectPd(String idx) {
+		return pdMapper.selectPd(idx);
 	}
-	public List<Pd> selectIdx(int idx){
-		return pdMapper.selectIdx(idx);
-	}
+	
 }
