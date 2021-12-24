@@ -193,7 +193,7 @@ public class Controller<MulitipartHttpServletRequest> {
 		String filename1 = multiFile1.getOriginalFilename();
 		String filename2 = multiFile2.getOriginalFilename();
 		
-		String fileSavePath = "C:\\testUpload";
+		String fileSavePath = "C:\\Users\\l7\\Documents\\work0\\hb2\\src\\main\\resources\\static\\";
 		File f1 = new File(fileSavePath + filename1);
 		File f2 = new File(fileSavePath + filename2);
 		
@@ -201,7 +201,7 @@ public class Controller<MulitipartHttpServletRequest> {
 		multiFile2.transferTo(f2);
 		
 		pdservice.createPd(pd);
-		return "/mbMgr";
+		return "redirect:/mbMgr";
 		
 	}
 	
