@@ -15,6 +15,8 @@ public interface PdMapper {
 
 	public List<Pd> selectPd(String idx);
 
+	public void deletePd(String idx);
+
 
 
 

@@ -214,7 +214,13 @@ public class Controller<MulitipartHttpServletRequest> {
 		model.addAttribute("pd", list);
 		return "/pdUpdateForm";
 	}
-		
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(value="/pdDelete/{idx}")
+	public String pdDelete(@PathVariable String idx, Model model, Menu menu) {
+		pdservice.deletePd(idx);
+		return "redirect:/mbMgr";
+	}
 }
 	
 		

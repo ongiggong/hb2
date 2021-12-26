@@ -35,4 +35,9 @@ public class PdServiceImpl implements PdService {
 		return pdMapper.selectPd(idx);
 	}
 	
+	@Override
+	public void deletePd(String idx) {
+		pdMapper.deletePd(idx);
+	}
+	
 }

@@ -88,7 +88,7 @@
 			            </td>
 			            <td style="width: 10%">
 			            	<p><input type="button" value="수정" class="pdUp" onclick="location.href='/pdUpdate/${item.p_idx}'"></p>
-			            	<p><input type="button" value="삭제"></p>
+			            	<p><input type="button" value="삭제" onclick="location.href='/pdDelete/${item.p_idx}'"></p>
 			            </td>
 			         </tr>
 			         </c:forEach>

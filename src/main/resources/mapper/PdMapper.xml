@@ -42,5 +42,12 @@
 		
 	</select>
 	
+	<delete id="deletePd" parameterType="String">
+		delete		
+		from 		pd
+		where p_idx = #{idx}
+		
+		
+	</delete>
 </mapper>
 
