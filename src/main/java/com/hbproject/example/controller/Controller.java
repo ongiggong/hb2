@@ -221,6 +221,11 @@ public class Controller<MulitipartHttpServletRequest> {
 		pdservice.deletePd(idx);
 		return "redirect:/mbMgr";
 	}
+	
+	@RequestMapping(value="/menuboard/{idx}")
+	public String menuboard(@PathVariable String idx, Model model, Menu menu) {
+		List<Pd> list = pdservice.selectPd(idx);	
+	}
 }
 	
 		
