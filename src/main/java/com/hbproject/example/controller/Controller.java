@@ -70,7 +70,7 @@ public class Controller<MulitipartHttpServletRequest> {
 	}
 
 	
-	@Secured("ROLE_USER")
+	
 	@RequestMapping(value="/userNav")
 	public String ajax(Model model) {
 		List<Menu> list = menuservice.getMenu();
@@ -79,7 +79,7 @@ public class Controller<MulitipartHttpServletRequest> {
 	}
 	
 		
-	@Secured("ROLE_USER")
+	
 	@RequestMapping(value="/main")
 	public String main(Model model) {
 		List<Menu> list = menuservice.getMenu();
@@ -151,7 +151,7 @@ public class Controller<MulitipartHttpServletRequest> {
 		return "redirect:/menuMgr";
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+
 	@RequestMapping(value="/menu/{idx}")
 	public String menuCg(Menu menu, Model model, String key, @PathVariable int idx) {
 		

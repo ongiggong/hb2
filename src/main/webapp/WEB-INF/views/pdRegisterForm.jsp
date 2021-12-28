@@ -31,7 +31,7 @@
 							<tr>
 							 	<td width="20%" style="text-align:center; font-size: 15px">기본 분류</td>
 								<td>
-								<select class="1stMenu">
+								<select id="cate1" class="1stMenu">
 								<option value="">선택</option>
 								<c:forEach var="item" items="${cg}">
 									<option value="${item.m_idx}">${item.m_name}</option>
@@ -81,6 +81,7 @@
 </body>
 
 <script>
+
 var cgNum;
 
 $(document).on('change', '.1stMenu', function() {
@@ -110,6 +111,7 @@ $(document).on('change', '.1stMenu', function() {
 			console.dir(e);
 		})
 	});
+
 
 
 function checkForm(){
