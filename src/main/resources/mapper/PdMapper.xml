@@ -42,6 +42,19 @@
 		
 	</select>
 	
+	<select id="selectBoard" parameterType="String"  resultType="Pd">
+		SELECT		p_idx,
+					p_number,
+					p_name,
+					p_price,
+					p_cg,
+					p_check
+		from 		pd
+		where p_cg = like #{idx}%
+	
+		
+	</select>
+	
 	<delete id="deletePd" parameterType="String">
 		delete		
 		from 		pd

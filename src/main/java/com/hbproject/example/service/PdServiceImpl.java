@@ -36,6 +36,11 @@ public class PdServiceImpl implements PdService {
 	}
 	
 	@Override
+	public List<Pd> getBoard(String idx) {
+		return pdMapper.selectBoard(idx);
+	}
+	
+	@Override
 	public void deletePd(String idx) {
 		pdMapper.deletePd(idx);
 	}

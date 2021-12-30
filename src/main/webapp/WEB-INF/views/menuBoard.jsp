@@ -34,7 +34,7 @@
 	<div class="col-xs-4 col-md-4">
 		<p style="text-align:center; margin-top: 10%;" >
 			<c:forEach var="item" items="${subCG}">
-				<a class="menuPan" style="cursor:pointer; margin-right: 20%; justify-content:space-between; font-family: Do Hyeon; font-size: 2.5em; color: black;" href="/menuboard/${item.m_idx}">${item.m_name}</a>
+				<button class="menuPan" style="background-color: #ffffff; border:none; cursor:pointer; margin-right: 20%; justify-content:space-between; font-family: Do Hyeon; font-size: 2.5em; color: black;" value="${item.m_idx}">${item.m_name}</button>
 			</c:forEach>
 		</p>
 	</div>
@@ -42,8 +42,8 @@
 </div>
 <div class="row">
 	<div class="col-xs-3 col-md-3"></div>
-	<div class="col-xs-6 col-md-6">
-		
+	<div id="board" class="col-xs-6 col-md-6">
+	
 	</div>
 	<div class="col-xs-3 col-md-3"></div>	
 </div>
@@ -60,10 +60,24 @@ $(document).ready(function(){
 
 $(document).on('click', '.menuPan', function() {
 	
-	var idx = $(this).();
+	var idx = $(this).val();
 	alert(idx);
 	
+	$.ajax({
+		 method: "GET",
+		 url: "/menuSel",
+		 data: {p_cg: idx}
+	})
+	 .done(function( data ) {
+		
+			alert(data);
 	
+		 
+	})
+	
+	.fail(function(e) {
+		console.dir(e);
+	})
 	
 	
 });

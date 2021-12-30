@@ -222,9 +222,11 @@ public class Controller<MulitipartHttpServletRequest> {
 		return "redirect:/mbMgr";
 	}
 	
-	@RequestMapping(value="/menuboard/{idx}")
-	public String menuboard(@PathVariable String idx, Model model, Menu menu) {
-		List<Pd> list = pdservice.selectPd(idx);	
+	@RequestMapping(value="/menuSel", method= RequestMethod.GET)
+	public String menuboard(@RequestParam("p_cg") String key, Model model, Pd pd) {
+		List<Pd> list = pdservice.getBoard(key);
+		model.addAttribute("board", list);
+		return "/boardForm";	
 	}
 }
 	
