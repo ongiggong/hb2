@@ -223,10 +223,17 @@ public class Controller<MulitipartHttpServletRequest> {
 	}
 	
 	@RequestMapping(value="/menuSel", method= RequestMethod.GET)
+	public String menuSel(@RequestParam("m_idx") String key, Model model, Pd pd) {
+		List<Menu> list = menuservice.getsubCg(key);
+		model.addAttribute("board", list);
+		return "/boardForm";	
+	}
+	
+	@RequestMapping(value="/menuBoard", method= RequestMethod.GET)
 	public String menuboard(@RequestParam("p_cg") String key, Model model, Pd pd) {
 		List<Pd> list = pdservice.getBoard(key);
 		model.addAttribute("board", list);
-		return "/boardForm";	
+		return "/menuPan";	
 	}
 }
 	

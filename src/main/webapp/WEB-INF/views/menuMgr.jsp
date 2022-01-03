@@ -68,7 +68,7 @@
 				        		<input type="text" style="text-align: center; margin-right: 10px"  value="${item.m_name}">
 					            <input type="button" style="margin-right: 5px" value="저장하기" class="btn-Sv">
 					            <input type="button" value="삭제하기" class="btn_Del" name="${item.m_idx}">
-					            <c:if test="${fn:length(idx)} < 7">
+					            <c:if test="${fn:length(idx) < 6 }">
 					            <input type="button" value="하위 항목 추가" class="addBelow" style="margin-left:5px" name="${idxKey*40}">
 					            </c:if>
 				            </div>

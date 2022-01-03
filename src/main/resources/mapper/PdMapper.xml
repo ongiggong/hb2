@@ -50,7 +50,7 @@
 					p_cg,
 					p_check
 		from 		pd
-		where p_cg = like #{idx}%
+		where p_cg like concat(#{idx}, '%')
 	
 		
 	</select>
@@ -58,7 +58,7 @@
 	<delete id="deletePd" parameterType="String">
 		delete		
 		from 		pd
-		where p_idx = #{idx}
+		where p_idx = '#{idx}%'
 		
 		
 	</delete>
