@@ -188,20 +188,22 @@ public class Controller<MulitipartHttpServletRequest> {
 	public String pdformUpload(Pd pd) throws IllegalStateException, IOException {
 		
 		MultipartFile multiFile1 = pd.getFile1();
-		MultipartFile multiFile2 = pd.getFile2();
+		
 		
 		String filename1 = multiFile1.getOriginalFilename();
-		String filename2 = multiFile2.getOriginalFilename();
+		
 		
 		String fileSavePath = "C:\\Users\\l7\\Documents\\work0\\hb2\\src\\main\\resources\\static\\";
 		File f1 = new File(fileSavePath + filename1);
-		File f2 = new File(fileSavePath + filename2);
+	
 		
 		multiFile1.transferTo(f1);
-		multiFile2.transferTo(f2);
+		
 		
 		pdservice.createPd(pd);
 		return "redirect:/mbMgr";
+		
+		
 		
 	}
 	

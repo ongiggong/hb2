@@ -65,7 +65,7 @@
 					<label for="productImage" style="text-align: center" class="col-sm-2 control-label">제품 이미지</label>
 					<div class="col-sm-10">
 					   <input style="margin-bottom: 3%" type="file" name="file1">
-					   <input type="file" name="file2">
+					 
 					</div>
 				 </div>
 				 <p style="margin-left:70%; margin-top: 5%"><input type="submit" value="업로드" style=" font-size: 20px"></p>
