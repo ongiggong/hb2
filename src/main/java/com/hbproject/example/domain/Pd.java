@@ -11,9 +11,21 @@ public class Pd {
 	private String p_cg;
 	private int p_price;
 	private int p_number;
-	private String p_originFileName;
-	private String p_filePath;
-	private Long p_fileSize;
+	private String p_fileName;
+	private String p_thumb;
+	
+	public String getP_thumb() {
+		return p_thumb;
+	}
+	public void setP_thumb(String p_thumb) {
+		this.p_thumb = p_thumb;
+	}
+	public String getP_fileName() {
+		return p_fileName;
+	}
+	public void setP_fileName(String p_fileName) {
+		this.p_fileName = p_fileName;
+	}
 	private String p_check;
 	public String getP_check() {
 		return p_check;
@@ -30,6 +42,7 @@ public class Pd {
 	public void setFile1(MultipartFile file1) {
 		this.file1 = file1;
 	}
+	
 	public MultipartFile getFile2() {
 		return file2;
 	}
@@ -43,24 +56,9 @@ public class Pd {
 		this.p_idx = p_idx;
 	}
 	
-	public String getP_originFileName() {
-		return p_originFileName;
-	}
-	public void setP_originFileName(String p_originFileName) {
-		this.p_originFileName = p_originFileName;
-	}
-	public String getP_filePath() {
-		return p_filePath;
-	}
-	public void setP_filePath(String p_filePath) {
-		this.p_filePath = p_filePath;
-	}
-	public Long getP_fileSize() {
-		return p_fileSize;
-	}
-	public void setP_fileSize(Long p_fileSize) {
-		this.p_fileSize = p_fileSize;
-	}
+	
+	
+	
 	public int getP_number() {
 		return p_number;
 	}

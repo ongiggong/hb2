@@ -68,7 +68,7 @@
 				        	${item.p_cg}
 			            </td>
 			            <td>
-			            	<input type="text" style="width:20%">
+			            	<img src="/${item.p_thumb}">
 			            </td>
 			            <td>
 				        	${item.p_name}

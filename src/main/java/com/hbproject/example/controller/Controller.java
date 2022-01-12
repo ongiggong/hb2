@@ -10,8 +10,13 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.multipart.MultipartFile; 
-import javax.swing.filechooser.FileSystemView; 
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.imageio.ImageIO;
+import javax.swing.filechooser.FileSystemView;
+
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -195,11 +200,16 @@ public class Controller<MulitipartHttpServletRequest> {
 		
 		String fileSavePath = "C:\\Users\\l7\\Documents\\work0\\hb2\\src\\main\\resources\\static\\";
 		File f1 = new File(fileSavePath + filename1);
-	
+		pd.setP_fileName(filename1);
 		
 		multiFile1.transferTo(f1);
-		
-		
+		File thumb = new File(fileSavePath, "s_"+filename1);
+		BufferedImage bo = ImageIO.read(f1);
+		BufferedImage bi = new BufferedImage(100, 75, BufferedImage.TYPE_3BYTE_BGR);
+		Graphics2D graphic = bi.createGraphics();
+		graphic.drawImage(bo, 0, 0, 100, 75, null);
+		ImageIO.write(bi, "jpg", thumb);
+		pd.setP_thumb("s_"+filename1);
 		pdservice.createPd(pd);
 		return "redirect:/mbMgr";
 		
