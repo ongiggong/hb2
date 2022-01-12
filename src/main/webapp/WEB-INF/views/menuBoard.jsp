@@ -56,15 +56,16 @@
 	</div>
 	<div class="col-xs-4col-md-3"></div>	
 </div>
-<div class="row">
+
 <div>
-	<div class="col-xs-4 col-md-3"></div>
-	<div id="board" class="col-xs-4 col-md-6">
-		
+	<div class="col-xs-4 col-md-4"></div>
+	<div class="col-xs-4 col-md-4">
+		<p id="board">
+		</p>
 	</div>
 	</div>
-	<div class="col-xs-4col-md-3"></div>	
-</div>
+	<div class="col-xs-4col-md-4"></div>	
+
 
 <div class="row">
 <div>
@@ -84,6 +85,12 @@ $(document).ready(function(){
     $(".menuPan").click(function(){  
         $(this).css("text-decoration", "underline");
         $(this).siblings().css("text-decoration", "");
+    });    
+});
+
+$(document).ready(function(){
+    $(".menuPan").click(function(){  
+       $("#menuPan").empty();
     });    
 });
 

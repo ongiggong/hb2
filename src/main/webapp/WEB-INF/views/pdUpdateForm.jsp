@@ -8,7 +8,7 @@
 		<div class="col-xs-2 col-md-2"></div>
 		<div class="col-xs-8 col-md-8">
 			<c:forEach var="pd" items="${pd}">
-			<form style="margin-top: 20%; font-size: 20px" name="pdForm" onSubmit="return checkForm()" class="form-horizontal" action="/pdformUpload" method="post" enctype="multipart/form-data">
+			<form style="margin-top: 20%; font-size: 20px" name="pdForm" onSubmit="return checkForm()" class="form-horizontal" action="/pdformUpdate/${pd.p_idx}" method="post" enctype="multipart/form-data">
 				<div class="form-group"  style="margin-top: 5%">
 				    <label for="productNumber" style="text-align: center" class="col-sm-2 control-label">제품 코드</label>
 				    

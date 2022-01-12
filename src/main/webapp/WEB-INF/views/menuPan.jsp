@@ -1,11 +1,24 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<div class="h2">
-<c:forEach var="item" items="${board}">
+<style>
+.h3 {
+	color: black;
+	text-align: center;
+	font-size: 20pt
+}
+</style>
 
-<p>${item.p_name}</p>
 
-</c:forEach>
-
+<div class="h3">
+<div class="col-xs-4 col-md-4"></div>
+<div class="col-xs-4 col-md-4">
+	<c:forEach var="item" items="${board}">
+	<div style="margin-right:50%">
+	<img src="/${item.p_fileName}">
+	${item.p_name}
+	</div>
+	</c:forEach>
+</div>
+<div class="col-xs-4 col-md-4"></div>
 </div>

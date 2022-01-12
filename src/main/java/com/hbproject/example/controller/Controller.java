@@ -1,4 +1,5 @@
 package com.hbproject.example.controller;
+import java.util.Date;
 import java.util.List;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import com.hbproject.example.domain.Menu;
 import com.hbproject.example.domain.Pd;
@@ -178,6 +180,8 @@ public class Controller<MulitipartHttpServletRequest> {
 		return "/pdRegisterForm";
 	}
 	
+	
+	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value="/subSelect", method= RequestMethod.POST)
 	public String menuCg(Model model, Menu menu, String key) {
@@ -196,20 +200,20 @@ public class Controller<MulitipartHttpServletRequest> {
 		
 		
 		String filename1 = multiFile1.getOriginalFilename();
+		String fileName  = System.currentTimeMillis()+"_"+filename1;
 		
-		
-		String fileSavePath = "C:\\Users\\l7\\Documents\\work0\\hb2\\src\\main\\resources\\static\\";
-		File f1 = new File(fileSavePath + filename1);
-		pd.setP_fileName(filename1);
-		
+		String fileSavePath = "D:\\Users\\√Ê»£\\Downloads\\burgerHo\\hb2\\src\\main\\resources\\static\\";
+		File f1 = new File(fileSavePath + fileName);
+		pd.setP_fileName(fileName);
 		multiFile1.transferTo(f1);
-		File thumb = new File(fileSavePath, "s_"+filename1);
+		
+		File thumb = new File(fileSavePath, "s_"+fileName);
 		BufferedImage bo = ImageIO.read(f1);
 		BufferedImage bi = new BufferedImage(100, 75, BufferedImage.TYPE_3BYTE_BGR);
 		Graphics2D graphic = bi.createGraphics();
 		graphic.drawImage(bo, 0, 0, 100, 75, null);
 		ImageIO.write(bi, "jpg", thumb);
-		pd.setP_thumb("s_"+filename1);
+		pd.setP_thumb("s_"+fileName);
 		pdservice.createPd(pd);
 		return "redirect:/mbMgr";
 		
@@ -225,6 +229,14 @@ public class Controller<MulitipartHttpServletRequest> {
 		List<Pd> list = pdservice.selectPd(idx);
 		model.addAttribute("pd", list);
 		return "/pdUpdateForm";
+	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(value="/pdformUpdate/{idx}")
+	public String pdUp(@PathVariable int idx, Pd pd) {
+		pd.setP_idx(idx);
+		pdservice.updatePd(pd);
+		return "redirect:/mbMgr";
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")

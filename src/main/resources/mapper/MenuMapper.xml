@@ -39,6 +39,8 @@
 		
 	</insert>
 	
+	
+	
 	<select id="menuName" parameterType="int" resultType="Menu">
 		SELECT		m_name,
 					m_idx

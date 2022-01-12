@@ -19,6 +19,8 @@ public interface PdMapper {
 
 	public List<Pd> selectBoard(String idx);
 
+	public void updatePd(Pd pd);
+
 
 
 

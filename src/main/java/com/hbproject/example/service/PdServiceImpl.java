@@ -30,6 +30,12 @@ public class PdServiceImpl implements PdService {
 		pdMapper.createPd(pd);
 	}
 	
+	
+	@Override
+	public void updatePd(Pd pd) {
+		pdMapper.updatePd(pd);
+	}
+	
 	@Override
 	public List<Pd> selectPd(String idx) {
 		return pdMapper.selectPd(idx);

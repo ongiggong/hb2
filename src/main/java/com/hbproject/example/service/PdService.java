@@ -20,6 +20,10 @@ public interface PdService {
 
 	public List<Pd> getBoard(String key);
 
+	public void updatePd(Pd pd);
+
+	
+
 	
 	
 	
